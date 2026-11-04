@@ -1,13 +1,14 @@
 
 "use strict";
 
-/* ========================================
-   PORTFOLIO JAVASCRIPT
-======================================== */
+/* =====================================
+   NEETU'S LITTLE UNIVERSE
+   PORTFOLIO INTERACTIONS
+===================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  // FOOTER YEAR
+  /* CURRENT YEAR */
 
   const year = document.getElementById("year");
 
@@ -15,105 +16,87 @@ document.addEventListener("DOMContentLoaded", () => {
     year.textContent = new Date().getFullYear();
   }
 
-  // MOBILE NAVIGATION
+  /* MOBILE NAVIGATION */
 
-  const menuToggle = document.getElementById("menuToggle");
-  const navLinks = document.getElementById("navLinks");
+  const mobileToggle = document.getElementById("mobileToggle");
+  const mobileNav = document.getElementById("mobileNav");
 
-  function closeMenu() {
-    if (!menuToggle || !navLinks) return;
+  function closeMobileMenu() {
+    if (!mobileToggle || !mobileNav) return;
 
-    navLinks.classList.remove("open");
-    menuToggle.setAttribute("aria-expanded", "false");
-    menuToggle.setAttribute("aria-label", "Open navigation");
-    menuToggle.textContent = "☰";
+    mobileNav.classList.remove("open");
+    mobileToggle.setAttribute("aria-expanded", "false");
+    mobileToggle.setAttribute("aria-label", "Open navigation");
+    mobileToggle.textContent = "☰";
   }
 
-  if (menuToggle && navLinks) {
+  if (mobileToggle && mobileNav) {
+    mobileToggle.addEventListener("click", () => {
+      const isOpen = mobileNav.classList.toggle("open");
 
-    menuToggle.addEventListener("click", () => {
-
-      const isOpen = navLinks.classList.toggle("open");
-
-      menuToggle.setAttribute(
-        "aria-expanded",
-        String(isOpen)
-      );
-
-      menuToggle.setAttribute(
+      mobileToggle.setAttribute("aria-expanded", String(isOpen));
+      mobileToggle.setAttribute(
         "aria-label",
         isOpen ? "Close navigation" : "Open navigation"
       );
 
-      menuToggle.textContent = isOpen ? "✕" : "☰";
+      mobileToggle.textContent = isOpen ? "✕" : "☰";
     });
 
-    navLinks.querySelectorAll("a").forEach(link => {
-      link.addEventListener("click", closeMenu);
+    mobileNav.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", closeMobileMenu);
     });
 
     document.addEventListener("keydown", event => {
-      if (event.key === "Escape") closeMenu();
+      if (event.key === "Escape") closeMobileMenu();
     });
   }
 
-  // PROJECT FILTERS
+  /* SCROLL PROGRESS */
 
-  const filterButtons = document.querySelectorAll(".filter-btn");
-  const projects = document.querySelectorAll(".project");
+  const scrollProgress = document.getElementById("scrollProgress");
 
-  filterButtons.forEach(button => {
+  function updateScrollProgress() {
+    if (!scrollProgress) return;
 
-    button.addEventListener("click", () => {
+    const pageHeight =
+      document.documentElement.scrollHeight -
+      window.innerHeight;
 
-      const filter = button.dataset.filter;
+    const progress = pageHeight > 0
+      ? (window.scrollY / pageHeight) * 100
+      : 0;
 
-      filterButtons.forEach(btn => {
-        const active = btn === button;
+    scrollProgress.style.width =
+      `${Math.min(100, Math.max(0, progress))}%`;
+  }
 
-        btn.classList.toggle("active", active);
-        btn.setAttribute("aria-pressed", String(active));
-      });
-
-      projects.forEach(project => {
-
-        const categories = project.dataset.category.split(" ");
-
-        project.hidden =
-          filter !== "all" &&
-          !categories.includes(filter);
-
-      });
-
-    });
-
+  window.addEventListener("scroll", updateScrollProgress, {
+    passive: true
   });
 
-  // SCROLL REVEAL
+  updateScrollProgress();
 
-  const revealElements = document.querySelectorAll(".reveal");
+  /* REVEAL ON SCROLL */
 
   const reducedMotion = window.matchMedia(
     "(prefers-reduced-motion: reduce)"
   );
 
+  const revealElements = document.querySelectorAll(".reveal");
+
   if (
     "IntersectionObserver" in window &&
     !reducedMotion.matches
   ) {
-
     const observer = new IntersectionObserver(
-      (entries, observerInstance) => {
-
+      (entries, currentObserver) => {
         entries.forEach(entry => {
-
           if (entry.isIntersecting) {
             entry.target.classList.add("visible");
-            observerInstance.unobserve(entry.target);
+            currentObserver.unobserve(entry.target);
           }
-
         });
-
       },
       {
         threshold: 0.08,
@@ -121,74 +104,197 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     );
 
-    revealElements.forEach(element => {
-      observer.observe(element);
-    });
-
+    revealElements.forEach(element => observer.observe(element));
   } else {
-
     revealElements.forEach(element => {
       element.classList.add("visible");
     });
-
   }
 
-  // STEERING WHEEL CURSOR
+  /* INTERACTIVE COMPASS */
+
+  const compass = document.querySelector(".compass");
+  const compassNeedle = document.getElementById("compassNeedle");
+
+  if (compass && compassNeedle && !reducedMotion.matches) {
+    const targets = compass.querySelectorAll(".compass-target");
+
+    const angles = {
+      "target-top": 0,
+      "target-right": 90,
+      "target-bottom": 180,
+      "target-left": -90
+    };
+
+    targets.forEach(target => {
+      target.addEventListener("mouseenter", () => {
+        for (const className in angles) {
+          if (target.classList.contains(className)) {
+            compassNeedle.style.transform =
+              `rotate(${angles[className]}deg)`;
+            break;
+          }
+        }
+      });
+    });
+
+    compass.addEventListener("mouseleave", () => {
+      compassNeedle.style.transform = "rotate(-30deg)";
+    });
+  }
+
+  /* MINI TERMINAL */
+
+  const terminalOutput = document.getElementById("terminalOutput");
+
+  const terminalCommands = {
+    whoami: [
+      "Name: Neetu Nawani",
+      "Role: Python & Backend Developer",
+      "Mission: Keep learning. Keep building."
+    ],
+    skills: [
+      "Loading skills...",
+      "Python | SQL | FastAPI | Git",
+      "RAG | Ollama | Testing",
+      "Status: Always improving."
+    ],
+    motivation: [
+      "Here's a thought:",
+      "Every developer was once a beginner.",
+      "Small progress is still progress."
+    ]
+  };
+
+  const commandButtons = document.querySelectorAll(".command-button");
+
+  commandButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      if (!terminalOutput) return;
+
+      const command = button.dataset.command;
+      const lines = terminalCommands[command];
+
+      if (!lines) return;
+
+      terminalOutput.replaceChildren();
+
+      const commandLine = document.createElement("p");
+      commandLine.textContent = `$ ${command}`;
+      terminalOutput.appendChild(commandLine);
+
+      lines.forEach(line => {
+        const paragraph = document.createElement("p");
+        paragraph.textContent = line;
+        terminalOutput.appendChild(paragraph);
+      });
+    });
+  });
+
+  /* FORTUNE GENERATOR */
+
+  const fortuneButton = document.getElementById("fortuneButton");
+  const fortuneText = document.getElementById("fortuneText");
+
+  const fortunes = [
+    "The bug is temporary. The learning stays.",
+    "Your next big idea might start with a tiny script.",
+    "Build something small. Make it better tomorrow.",
+    "It's not magic. It's debugging and a little patience.",
+    "The best way to learn how things work? Build one.",
+    "A failed test is useful information in disguise.",
+    "Stay curious. That is your best developer tool.",
+    "Every good project starts with an interesting question."
+  ];
+
+  let previousFortune = -1;
+
+  if (fortuneButton && fortuneText) {
+    fortuneButton.addEventListener("click", () => {
+      let index;
+
+      do {
+        index = Math.floor(Math.random() * fortunes.length);
+      } while (
+        fortunes.length > 1 &&
+        index === previousFortune
+      );
+
+      previousFortune = index;
+      fortuneText.textContent = fortunes[index];
+    });
+  }
+
+  /* CUSTOM STEERING WHEEL CURSOR */
 
   const finePointer = window.matchMedia(
     "(hover: hover) and (pointer: fine)"
   );
 
-  if (!finePointer.matches || reducedMotion.matches) return;
-
   const cursor = document.getElementById("custom-cursor");
 
-  if (!cursor) return;
+  if (
+    !cursor ||
+    !finePointer.matches ||
+    reducedMotion.matches
+  ) {
+    return;
+  }
 
   const wheel = cursor.querySelector(".cursor-wheel");
 
   if (!wheel) return;
 
-  let mouseX = -100;
-  let mouseY = -100;
+  document.documentElement.classList.add(
+    "custom-cursor-enabled"
+  );
+
+  let targetX = -100;
+  let targetY = -100;
+
   let currentX = -100;
   let currentY = -100;
+
+  let previousX = null;
+  let previousY = null;
+
   let rotation = 0;
-  let lastMouseX = 0;
   let initialized = false;
+  let animationFrameId = null;
 
-  document.addEventListener("pointermove", event => {
-
+  function handlePointerMove(event) {
     if (event.pointerType !== "mouse") return;
 
-    mouseX = event.clientX;
-    mouseY = event.clientY;
+    targetX = event.clientX;
+    targetY = event.clientY;
 
     if (!initialized) {
-      currentX = mouseX;
-      currentY = mouseY;
-      lastMouseX = mouseX;
+      currentX = targetX;
+      currentY = targetY;
+      previousX = targetX;
+      previousY = targetY;
       initialized = true;
     }
 
     cursor.classList.add("visible");
 
-    const movementX = mouseX - lastMouseX;
-    const movementY = mouseY - (window.lastCursorY ?? mouseY);
+    const dx = targetX - previousX;
+    const dy = targetY - previousY;
 
-    const movement = Math.hypot(movementX, movementY);
+    const movement = Math.hypot(dx, dy);
 
     if (movement > 0) {
-      const direction = movementX >= 0 ? 1 : -1;
-      rotation += direction * Math.min(movement * .9, 25);
+      const direction = dx >= 0 ? 1 : -1;
+
+      rotation += direction * Math.min(movement * 0.8, 20);
     }
 
-    lastMouseX = mouseX;
-    window.lastCursorY = mouseY;
+    previousX = targetX;
+    previousY = targetY;
 
     const interactive = event.target instanceof Element
       ? event.target.closest(
-          "a, button, input, textarea, select, .project, .skill-card"
+          "a, button, input, textarea, select, .project-card, .compass-target"
         )
       : null;
 
@@ -196,24 +302,26 @@ document.addEventListener("DOMContentLoaded", () => {
       "is-hovering",
       Boolean(interactive)
     );
+  }
 
-  }, { passive: true });
+  document.addEventListener(
+    "pointermove",
+    handlePointerMove,
+    { passive: true }
+  );
 
   function animateCursor() {
-
     if (initialized) {
-
-      currentX += (mouseX - currentX) * .22;
-      currentY += (mouseY - currentY) * .22;
+      currentX += (targetX - currentX) * 0.24;
+      currentY += (targetY - currentY) * 0.24;
 
       cursor.style.transform =
-        `translate3d(${currentX - 26}px, ${currentY - 26}px, 0)`;
+        `translate3d(${currentX - 23}px, ${currentY - 23}px, 0)`;
 
-      wheel.style.transform =
-        `rotate(${rotation}deg)`;
+      wheel.style.transform = `rotate(${rotation}deg)`;
     }
 
-    requestAnimationFrame(animateCursor);
+    animationFrameId = requestAnimationFrame(animateCursor);
   }
 
   animateCursor();
@@ -233,23 +341,29 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   document.addEventListener("mouseout", event => {
-
     if (!event.relatedTarget) {
       cursor.classList.remove("visible");
+      cursor.classList.remove("is-hovering");
       cursor.classList.remove("is-clicking");
       initialized = false;
+      previousX = null;
+      previousY = null;
     }
-
   });
 
   document.addEventListener("visibilitychange", () => {
-
     if (document.hidden) {
       cursor.classList.remove("visible");
       cursor.classList.remove("is-clicking");
       initialized = false;
+      previousX = null;
+      previousY = null;
     }
-
   });
 
+  window.addEventListener("pagehide", () => {
+    if (animationFrameId !== null) {
+      cancelAnimationFrame(animationFrameId);
+    }
+  });
 });
