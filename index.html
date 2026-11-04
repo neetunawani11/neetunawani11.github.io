@@ -4,189 +4,558 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Neetu Nawani - GenAI and AI Developer portfolio showcasing Python, RAG and LLM projects.">
-  <title>Neetu Nawani | GenAI Developer</title>
+
+  <meta name="theme-color" content="#080b14">
+  <meta name="description" content="Neetu Nawani — Python Developer focused on backend APIs, SQL and AI integration. Explore projects and open-source work.">
+
+  <title>Neetu Nawani | Python & AI Developer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
+
 <body>
-  <header class="site-header">
-    <nav class="container navbar" aria-label="Main navigation">
-      <a class="logo" href="#home">Neetu<span>.</span></a>
-      <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
-      <div class="nav-links">
+
+  <!-- NAVIGATION -->
+  <header class="nav-wrap">
+    <nav class="nav container" aria-label="Main navigation">
+
+      <a class="logo" href="#home">
+        <span class="logo-mark">N.</span>
+        neetu.dev
+      </a>
+
+      <button
+        id="menuToggle"
+        class="menu-toggle"
+        type="button"
+        aria-label="Open navigation"
+        aria-controls="navLinks"
+        aria-expanded="false"
+      >☰</button>
+
+      <div class="nav-links" id="navLinks">
         <a href="#about">About</a>
-        <a href="#skills">Skills</a>
+        <a href="#skills">Expertise</a>
         <a href="#projects">Projects</a>
-        <a href="#experience">Experience</a>
-        <a href="#contact">Contact</a>
+        <a href="#approach">Approach</a>
+        <a href="#contact" class="nav-cta">Let's Connect ↗</a>
       </div>
+
     </nav>
   </header>
- 
+
   <main>
+
+    <!-- HERO -->
     <section id="home" class="hero container">
-      <div class="hero-content">
-        <p class="eyebrow">HELLO, I'M NEETU NAWANI</p>
-        <h1>Building intelligent solutions with <span>Generative AI.</span></h1>
+
+      <div class="hero-copy">
+
+        <div class="availability">
+          <span class="status-dot"></span>
+          OPEN TO DEVELOPER OPPORTUNITIES
+        </div>
+
+        <h1>
+          Think.<br>
+          <span class="stroke">Build.</span><br>
+          <span class="highlight">Evolve.</span>
+        </h1>
+
         <p class="hero-description">
-          Aspiring GenAI / AI Developer focused on Python,
-          Retrieval-Augmented Generation (RAG), local language models,
-          and practical AI applications.
+          Hi, I'm <strong>Neetu Nawani.</strong>
+          I work with Python, backend APIs, SQL and AI tools
+          to turn ideas into practical software.
+          Curious by nature, driven by building.
         </p>
-        <div class="hero-actions">
-          <a href="#projects" class="btn btn-primary">Explore Projects</a>
-          <a href="https://github.com/neetunawani11"
-             target="_blank" rel="noopener noreferrer"
-             class="btn btn-outline">My GitHub</a>
+
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary">
+            Explore My Work ↗
+          </a>
+
+          <a
+            href="https://github.com/neetunawani11"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-outline"
+          >
+            GitHub Profile ↗
+          </a>
+        </div>
+
+        <div class="hero-bottom">
+          <div><strong>Python</strong><span>Development</span></div>
+          <div><strong>APIs</strong><span>Backend Systems</span></div>
+          <div><strong>AI</strong><span>Integration & RAG</span></div>
+        </div>
+
+      </div>
+
+      <!-- HERO GRAPHIC -->
+      <div class="hero-art" aria-label="Abstract developer illustration">
+
+        <div class="orbital">
+          <div class="core">
+            <span>N<em>.</em></span>
+          </div>
+
+          <div class="floating-card float-code">
+            &lt;build /&gt;<br>
+            &lt;learn /&gt;<br>
+            &lt;repeat /&gt;
+          </div>
+
+          <div class="floating-card float-ai">
+            <strong>AI + BACKEND</strong>
+            <small>INTEGRATION READY</small>
+          </div>
+
+          <div class="floating-card float-terminal">
+            <div class="terminal-dots">
+              <i></i><i></i><i></i>
+            </div>
+            <code>
+              $ python main.py<br>
+              <b>✓</b> Application started<br>
+              <b>✓</b> API connected<br>
+              <b>✓</b> Ready to build
+            </code>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TECHNOLOGY STRIP -->
+    <div class="marquee-wrap">
+      <div class="marquee-track">
+        <div class="marquee-group">
+          <span>PYTHON</span><b>✳</b>
+          <span>FASTAPI</span><b>✳</b>
+          <span>SQL</span><b>✳</b>
+          <span>REST APIs</span><b>✳</b>
+          <span>GIT & GITHUB</span><b>✳</b>
+          <span>OLLAMA</span><b>✳</b>
+          <span>RAG SYSTEMS</span><b>✳</b>
+        </div>
+        <div class="marquee-group" aria-hidden="true">
+          <span>PYTHON</span><b>✳</b>
+          <span>FASTAPI</span><b>✳</b>
+          <span>SQL</span><b>✳</b>
+          <span>REST APIs</span><b>✳</b>
+          <span>GIT & GITHUB</span><b>✳</b>
+          <span>OLLAMA</span><b>✳</b>
+          <span>RAG SYSTEMS</span><b>✳</b>
         </div>
       </div>
-      <div class="code-panel" aria-label="Technical interests">
-        <div class="panel-header"><span></span><span></span><span></span> developer.py</div>
-        <pre><code>developer = {
-  "name": "Neetu Nawani",
-  "focus": "Generative AI",
-  "language": "Python",
-  "interests": [
-    "RAG Systems",
-    "Local LLMs",
-    "AI Evaluation"
-  ]
-}</code></pre>
+    </div>
+
+    <!-- ABOUT -->
+    <section id="about" class="section container">
+      <div class="about-grid">
+
+        <div class="about-visual reveal">
+          <div class="about-symbol">N<span>.</span></div>
+          <span class="about-tag mono">
+            CREATING ONE PROJECT AT A TIME
+          </span>
+        </div>
+
+        <div class="about-content reveal">
+          <div class="section-label mono">
+            01 / BEHIND THE CODE
+          </div>
+
+          <h2 class="section-heading">
+            More than<br>just syntax.
+          </h2>
+
+          <p>
+            I'm Neetu, a developer focused on learning through
+            real projects. My background includes business,
+            e-commerce and technology.
+          </p>
+
+          <p>
+            My current focus is <strong>Python development,
+            SQL, backend APIs and AI integration.</strong>
+            I enjoy experimenting, debugging and understanding
+            how systems work behind the scenes.
+          </p>
+
+          <p>
+            Rather than only following tutorials, I aim to
+            build applications, test them and improve them
+            through iteration.
+          </p>
+
+          <div class="mini-facts">
+            <div class="fact">
+              <small>Primary Language</small>
+              <strong>Python</strong>
+            </div>
+            <div class="fact">
+              <small>Backend Focus</small>
+              <strong>FastAPI & REST</strong>
+            </div>
+            <div class="fact">
+              <small>AI Interests</small>
+              <strong>RAG & LLM Applications</strong>
+            </div>
+            <div class="fact">
+              <small>Tools</small>
+              <strong>Git, GitHub & Testing</strong>
+            </div>
+          </div>
+
+        </div>
       </div>
     </section>
 
-    <section id="about" class="section">
+    <!-- SKILLS -->
+    <section class="section skills-section" id="skills">
       <div class="container">
-        <p class="eyebrow">INTRODUCTION</p>
-        <h2>About Me</h2>
-        <p class="section-intro">
-          I am an aspiring GenAI / AI Developer with hands-on experience
-          building a local Retrieval-Augmented Generation application.
-          I enjoy combining Python, information retrieval, and language
-          models to solve practical problems.
-        </p>
-        <p>
-          My background also includes web development and digital
-          technologies. I'm continuously expanding my knowledge of
-          LLM workflows, evaluation, and AI application development.
-        </p>
-      </div>
-    </section>
 
-    <section id="skills" class="section section-alt">
-      <div class="container">
-        <p class="eyebrow">TECH STACK</p>
-        <h2>Technical Skills</h2>
+        <div class="section-label mono reveal">
+          02 / MY TOOLKIT
+        </div>
+
+        <h2 class="section-heading reveal">
+          Tools I build with<span class="accent-dot">.</span>
+        </h2>
+
+        <p class="section-description reveal">
+          A growing technical stack shaped by hands-on projects,
+          experiments and practical problem-solving.
+        </p>
+
         <div class="skills-grid">
-          <div class="skill-card">
-            <h3>AI & GenAI</h3>
-            <p>RAG, LLMs, Prompting, Model Evaluation</p>
-          </div>
-          <div class="skill-card">
-            <h3>Programming</h3>
-            <p>Python, JavaScript, HTML, CSS</p>
-          </div>
-          <div class="skill-card">
-            <h3>AI Tools</h3>
-            <p>Ollama, Qwen, Local LLM Workflows</p>
-          </div>
-          <div class="skill-card">
-            <h3>Developer Tools</h3>
-            <p>Git, GitHub, VS Code, Virtual Environments</p>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <section id="projects" class="section">
-      <div class="container">
-        <p class="eyebrow">SELECTED WORK</p>
-        <h2>Featured Projects</h2>
-        <div class="project-grid">
-          <article class="project-card">
-            <div class="project-type">GENAI · PYTHON</div>
-            <h3>Local RAG & LLM Evaluation</h3>
+          <article class="skill-card reveal">
+            <div class="skill-icon">01.py</div>
+            <h3>Python</h3>
             <p>
-              A local retrieval-augmented question-answering project
-              using Python, Ollama and Qwen models. Includes document
-              ingestion, chunking, retrieval, answer citations,
-              evaluation and automated tests.
+              Automation, data processing, debugging,
+              testing and application logic.
             </p>
-            <div class="tags">
-              <span>Python</span><span>RAG</span>
-              <span>Ollama</span><span>Qwen</span>
-            </div>
-            <a href="https://github.com/neetunawani11/local-rag-and-llm-evaluation"
-               target="_blank" rel="noopener noreferrer">
-              View GitHub Repository →
-            </a>
           </article>
 
-          <article class="project-card">
-            <div class="project-type">WEB DEVELOPMENT</div>
-            <h3>Developer Portfolio</h3>
+          <article class="skill-card reveal">
+            <div class="skill-icon">{ API }</div>
+            <h3>Backend APIs</h3>
             <p>
-              A responsive personal portfolio built with HTML, CSS
-              and JavaScript to showcase AI development work,
-              technical skills and projects.
+              REST endpoints, FastAPI, JSON, validation
+              and backend services.
             </p>
-            <div class="tags">
-              <span>HTML</span><span>CSS</span><span>JavaScript</span>
-            </div>
-            <a href="https://github.com/neetunawani11/neetunawani11.github.io"
-               target="_blank" rel="noopener noreferrer">
-              View Source Code →
-            </a>
           </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-icon">SELECT *</div>
+            <h3>SQL & Data</h3>
+            <p>
+              Queries, joins, relational databases
+              and data organization.
+            </p>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-icon">AI_</div>
+            <h3>AI Integration</h3>
+            <p>
+              Local language models, RAG,
+              document ingestion and AI experiments.
+            </p>
+          </article>
+
         </div>
       </div>
     </section>
 
-    <section id="experience" class="section section-alt">
-      <div class="container">
-        <p class="eyebrow">MY BACKGROUND</p>
-        <h2>Experience & Learning</h2>
-        <div class="timeline-card">
-          <h3>Generative AI Project Development</h3>
-          <p>
-            Built and tested a local RAG application covering
-            document processing, retrieval, model responses,
-            citations and evaluation.
-          </p>
-        </div>
-        <div class="timeline-card">
-          <h3>Web & Digital Technologies</h3>
-          <p>
-            Experience working with websites, frontend development,
-            SEO and digital technology workflows.
-          </p>
-        </div>
-      </div>
-    </section>
+    <!-- PROJECTS -->
+    <section id="projects" class="section container">
 
-    <section id="contact" class="section contact-section">
-      <div class="container">
-        <p class="eyebrow">GET IN TOUCH</p>
-        <h2>Let's Connect</h2>
-        <p>
-          Interested in AI development, collaboration or a
-          developer opportunity? Explore my projects and connect
-          with me on GitHub.
-        </p>
-        <a class="btn btn-primary"
-           href="https://github.com/neetunawani11"
-           target="_blank" rel="noopener noreferrer">
-          Visit My GitHub
+      <div class="project-top">
+        <div>
+          <div class="section-label mono reveal">
+            03 / SELECTED WORK
+          </div>
+
+          <h2 class="section-heading reveal">
+            Proof in projects<span class="accent-dot">.</span>
+          </h2>
+
+          <p class="section-description reveal">
+            Applications and contributions showing how I
+            solve problems, write code and keep improving.
+          </p>
+        </div>
+
+        <a
+          href="https://github.com/neetunawani11?tab=repositories"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-outline"
+        >
+          All Repositories ↗
         </a>
       </div>
+
+      <div class="project-filters" role="group" aria-label="Filter projects">
+        <button class="filter-btn active" data-filter="all" aria-pressed="true">All Projects</button>
+        <button class="filter-btn" data-filter="ai" aria-pressed="false">AI / RAG</button>
+        <button class="filter-btn" data-filter="backend" aria-pressed="false">Backend</button>
+        <button class="filter-btn" data-filter="python" aria-pressed="false">Python</button>
+        <button class="filter-btn" data-filter="opensource" aria-pressed="false">Open Source</button>
+      </div>
+
+      <div class="project-grid">
+
+        <article class="project reveal" data-category="ai python">
+          <div class="project-display display-rag">
+            <span class="project-num mono">PROJECT / 001</span>
+            <div class="display-symbol">RAG_</div>
+          </div>
+
+          <div class="project-content">
+            <span class="project-category">AI ENGINEERING / PYTHON</span>
+            <h3>Local RAG & LLM Evaluation</h3>
+            <p>
+              A local RAG application that ingests documents,
+              retrieves relevant information, generates answers
+              and evaluates citations.
+            </p>
+
+            <div class="tech-tags">
+              <span>Python</span>
+              <span>Ollama</span>
+              <span>RAG</span>
+              <span>LLM Evaluation</span>
+            </div>
+
+            <div class="project-footer">
+              <span class="mono">AI APPLICATION</span>
+              <a href="https://github.com/neetunawani11/local-rag-and-llm-evaluation" target="_blank" rel="noopener noreferrer">
+                View Source ↗
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project reveal" data-category="backend python">
+          <div class="project-display display-api">
+            <span class="project-num mono">PROJECT / 002</span>
+            <div class="display-symbol">{ API }</div>
+          </div>
+
+          <div class="project-content">
+            <span class="project-category">BACKEND / REST API</span>
+            <h3>Backend API Projects</h3>
+            <p>
+              Python backend development experiments
+              featuring API building, application logic
+              and server-side programming.
+            </p>
+
+            <div class="tech-tags">
+              <span>Python</span>
+              <span>FastAPI</span>
+              <span>REST</span>
+              <span>JSON</span>
+            </div>
+
+            <div class="project-footer">
+              <span class="mono">BACKEND DEVELOPMENT</span>
+              <a href="https://github.com/neetunawani11?tab=repositories" target="_blank" rel="noopener noreferrer">
+                Explore Repos ↗
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project reveal" data-category="opensource python">
+          <div class="project-display display-open">
+            <span class="project-num mono">PROJECT / 003</span>
+            <div class="display-symbol">git / pr</div>
+          </div>
+
+          <div class="project-content">
+            <span class="project-category">OPEN SOURCE / AUTOMATION</span>
+            <h3>Junior Dev Opportunities India</h3>
+            <p>
+              Open-source developer opportunities repository
+              with Python-based opportunity validation work.
+            </p>
+
+            <div class="tech-tags">
+              <span>Python</span>
+              <span>GitHub</span>
+              <span>Validation</span>
+              <span>Open Source</span>
+            </div>
+
+            <div class="project-footer">
+              <span class="mono">OPEN SOURCE</span>
+              <a href="https://github.com/neetunawani11/junior-dev-opportunities-india" target="_blank" rel="noopener noreferrer">
+                View Source ↗
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project reveal" data-category="python">
+          <div class="project-display display-python">
+            <span class="project-num mono">PROJECT / 004</span>
+            <div class="display-symbol">.py()</div>
+          </div>
+
+          <div class="project-content">
+            <span class="project-category">PYTHON / DATA PROCESSING</span>
+            <h3>Device Log Summarizer</h3>
+            <p>
+              Python practice project involving sensor
+              reading cleanup, data handling and
+              automated testing.
+            </p>
+
+            <div class="tech-tags">
+              <span>Python</span>
+              <span>pytest</span>
+              <span>Data Cleaning</span>
+            </div>
+
+            <div class="project-footer">
+              <span class="mono">PYTHON PRACTICE</span>
+              <a href="https://github.com/neetunawani11?tab=repositories" target="_blank" rel="noopener noreferrer">
+                Browse GitHub ↗
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </div>
     </section>
+
+    <!-- APPROACH -->
+    <section class="section workflow" id="approach">
+      <div class="container">
+
+        <div class="section-label mono reveal">
+          04 / HOW I WORK
+        </div>
+
+        <h2 class="section-heading reveal">
+          Curiosity into<br>working code.
+        </h2>
+
+        <p class="section-description reveal">
+          Understand the problem, build something useful
+          and keep refining it.
+        </p>
+
+        <div class="workflow-grid">
+
+          <article class="workflow-item reveal">
+            <span class="workflow-number mono">STEP 01 / UNDERSTAND</span>
+            <h3>Start with the problem.</h3>
+            <p>
+              Break down requirements, understand inputs
+              and outputs, and plan a practical solution.
+            </p>
+          </article>
+
+          <article class="workflow-item reveal">
+            <span class="workflow-number mono">STEP 02 / IMPLEMENT</span>
+            <h3>Build, don't just read.</h3>
+            <p>
+              Turn ideas into working code through
+              understandable components and test cases.
+            </p>
+          </article>
+
+          <article class="workflow-item reveal">
+            <span class="workflow-number mono">STEP 03 / IMPROVE</span>
+            <h3>Test. Debug. Refine.</h3>
+            <p>
+              Review failures, improve reliability
+              and strengthen the next iteration.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact container" id="contact">
+      <div class="contact-panel reveal">
+
+        <div class="section-label mono">
+          05 / GET IN TOUCH
+        </div>
+
+        <h2>
+          Great things start<br>
+          with a <span>conversation.</span>
+        </h2>
+
+        <p>
+          Interested in my work, an open-source collaboration
+          or a developer opportunity? Let's connect.
+        </p>
+
+        <div class="contact-links">
+          <a href="https://github.com/neetunawani11" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            Connect on GitHub ↗
+          </a>
+
+          <a href="https://github.com/neetunawani11?tab=repositories" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+            Explore My Code ↗
+          </a>
+        </div>
+
+      </div>
+    </section>
+
   </main>
 
-  <footer class="footer">
-    <div class="container">
-      <p>© 2026 Neetu Nawani. Built with HTML, CSS & JavaScript.</p>
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <a href="#home" class="logo">
+        <span class="logo-mark">N.</span>
+        neetu.dev
+      </a>
+
+      <p>
+        © <span id="year"></span> Neetu Nawani.
+        Designed with curiosity. Built with code.
+      </p>
+
+      <div class="footer-links">
+        <a href="https://github.com/neetunawani11" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        <a href="#home">Back to top ↑</a>
+      </div>
     </div>
   </footer>
+
+  <!-- CUSTOM STEERING WHEEL CURSOR -->
+  <div id="custom-cursor" aria-hidden="true">
+    <div class="cursor-glow"></div>
+
+    <div class="cursor-wheel">
+      <div class="wheel-inner-ring"></div>
+      <span class="wheel-spoke spoke-one"></span>
+      <span class="wheel-spoke spoke-two"></span>
+      <span class="wheel-spoke spoke-three"></span>
+    </div>
+  </div>
+
 </body>
 </html>
